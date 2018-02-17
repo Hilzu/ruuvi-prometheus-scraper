@@ -1,0 +1,14 @@
+[Unit]
+Description=Ruuvi Prometheus scraper
+After=bluetooth.target
+Wants=bluetooth.target
+
+[Service]
+Type=simple
+ExecStart=/home/ruuvi/ruuvi-prometheus-scraper/venv/bin/python /home/ruuvi/ruuvi-prometheus-scraper/main.py
+User=ruuvi
+Group=ruuvi
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
