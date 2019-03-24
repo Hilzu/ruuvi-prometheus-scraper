@@ -23,6 +23,16 @@ beacons = {
         'last_update': 0.0,
         'sensor_data': {},
     },
+    'C8:58:81:78:A4:01': {
+        'name': 'Jääkaappi',
+        'last_update': 0.0,
+        'sensor_data': {},
+    },
+    'E9:0A:E4:6C:01:71': {
+        'name': 'Sauna',
+        'last_update': 0.0,
+        'sensor_data': {},
+    },
 }
 
 temp_gauge = Gauge('ruuvi_temperature_c', 'Temperature in Celsius', ['location'])
