@@ -38,6 +38,7 @@ beacons = {
 temp_gauge = Gauge('ruuvi_temperature_c', 'Temperature in Celsius', ['location'])
 humidity_gauge = Gauge('ruuvi_humidity_percent', 'Humidity %', ['location'])
 pressure_gauge = Gauge('ruuvi_pressure_hpa', 'Air pressure hPa', ['location'])
+battery_gauge = Gauge('ruuvi_battery_v', 'Battery V', ['location'])
 
 def handle_data(data):
     [mac, sensor_data] = data
@@ -48,6 +49,7 @@ def handle_data(data):
     temp_gauge.labels(location).set(sensor_data['temperature'])
     humidity_gauge.labels(location).set(sensor_data['humidity'] / 100.0)
     pressure_gauge.labels(location).set(sensor_data['pressure'])
+    battery_gauge.labels(location).set(sensor_data['battery'] / 1000.0)
 
 def sigint_handler(signal, frame):
     print("Collected data:")
